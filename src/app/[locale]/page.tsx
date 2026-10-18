@@ -1,28 +1,26 @@
 import { getFormatter, getTranslations } from "next-intl/server";
 import { REPO_URL } from "@/components/site-footer";
-
-/**
- * Illustrative numbers for the hero. Once the calculation engine lands
- * (stage 2), these will come from it instead of being written out here.
- */
-const example = {
-  currency: "USD",
-  parts: [
-    { key: "filament", amount: 0.26, color: "var(--layer-1)" },
-    { key: "electricity", amount: 0.02, color: "var(--layer-3)" },
-    { key: "wear", amount: 0.09, color: "var(--layer-5)" },
-    { key: "extras", amount: 0.2, color: "var(--layer-4)" },
-    { key: "labor", amount: 1.25, color: "var(--layer-2)" },
-    { key: "failures", amount: 0.09, color: "var(--layer-6)" },
-  ],
-  suggestedPrice: 2.48,
-} as const;
+import { calculate, exampleCurrency, exampleInputs } from "@/lib/calculator";
 
 export default async function HomePage() {
   const [t, format] = await Promise.all([getTranslations("Home"), getFormatter()]);
-  const total = example.parts.reduce((sum, p) => sum + p.amount, 0);
-  const money = (n: number) =>
-    format.number(n, { style: "currency", currency: example.currency });
+  const money = (n: number) => format.number(n, { style: "currency", currency: exampleCurrency });
+
+  // The hero shows a real run of the cost engine, not made-up numbers.
+  const result = calculate(exampleInputs);
+  const c = result.perPiece.costs;
+  const example = {
+    parts: [
+      { key: "filament", amount: c.filament, color: "var(--layer-1)" },
+      { key: "electricity", amount: c.electricity, color: "var(--layer-3)" },
+      { key: "wear", amount: c.depreciation + c.maintenance, color: "var(--layer-5)" },
+      { key: "extras", amount: c.extras, color: "var(--layer-4)" },
+      { key: "labor", amount: c.labor, color: "var(--layer-2)" },
+      { key: "failures", amount: c.failures, color: "var(--layer-6)" },
+    ],
+    suggestedPrice: result.perPiece.price,
+  } as const;
+  const total = result.perPiece.cost;
 
   return (
     <>

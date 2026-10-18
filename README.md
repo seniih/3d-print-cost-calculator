@@ -13,6 +13,8 @@ A free, open-source, self-hostable web app that adds up every part of a print:
 
 …and turns it into a cost per piece and a suggested selling price. Available in English and Turkish.
 
+The math is documented in [docs/cost-model.md](docs/cost-model.md).
+
 > **Status:** early development. See the [roadmap](#roadmap).
 
 ## Quick start
@@ -74,7 +76,7 @@ Useful scripts:
 ## Roadmap
 
 - [x] Project skeleton: database, auth, i18n, Docker
-- [ ] Cost engine with unit tests
+- [x] Cost engine with unit tests
 - [ ] Printer, filament and extras libraries
 - [ ] Calculator screen with cost breakdown and suggested price
 - [ ] Read weight and print time from G-code / 3MF files
