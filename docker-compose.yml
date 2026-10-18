@@ -1,0 +1,59 @@
+# Run the whole thing locally:
+#
+#   docker compose up -d
+#
+# then open http://localhost:3000. No configuration needed: without sign-in
+# providers the app starts in local mode with a single built-in user.
+# To enable Google/GitHub sign-in, copy .env.example to .env and fill it in.
+
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: printcost
+      POSTGRES_PASSWORD: printcost
+      POSTGRES_DB: printcost
+    ports:
+      # Only reachable from this machine; lets `pnpm dev` use the same database.
+      - "127.0.0.1:${DB_PORT:-5432}:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U printcost -d printcost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  migrate:
+    build:
+      context: .
+      target: migrate
+    environment:
+      DATABASE_URL: postgresql://printcost:printcost@db:5432/printcost
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+
+  app:
+    build:
+      context: .
+      target: runner
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DATABASE_URL: postgresql://printcost:printcost@db:5432/printcost
+      BETTER_AUTH_URL: ${BETTER_AUTH_URL:-http://localhost:3000}
+    depends_on:
+      db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+volumes:
+  db-data:

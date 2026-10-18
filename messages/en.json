@@ -1,0 +1,58 @@
+{
+  "Metadata": {
+    "title": "3D Print Cost Calculator",
+    "description": "Work out what a 3D print really costs: filament, electricity, printer wear, hardware like keyrings and magnets, labor and failed prints. Free and open source."
+  },
+  "Header": {
+    "home": "Home",
+    "language": "Language",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "localMode": "Local mode",
+    "localModeHint": "Running on your own machine. Everything is saved to this instance.",
+    "guest": "Guest",
+    "guestHint": "Your work is saved to this browser. Sign in to keep it on any device."
+  },
+  "Home": {
+    "title": "Know what every print really costs",
+    "lead": "Filament is only part of the bill. Add electricity, printer wear, glue, keyrings, magnets, packaging, your time and the prints that fail, and get a price you can actually sell at.",
+    "start": "Start a calculation",
+    "selfHost": "Run it yourself",
+    "exampleTitle": "Example: a keychain, 12 g of PLA, 48 minutes",
+    "exampleTotal": "Cost per piece",
+    "examplePrice": "Suggested price",
+    "parts": {
+      "filament": "Filament",
+      "electricity": "Electricity",
+      "wear": "Printer wear",
+      "extras": "Keyring and packaging",
+      "labor": "Labor",
+      "failures": "Failed prints"
+    },
+    "countsTitle": "What it counts",
+    "counts": {
+      "filament": "Filament by the gram, with waste from purges and supports",
+      "machine": "Electricity, printer depreciation and maintenance per print hour",
+      "extras": "Your own list of extras: keyrings, magnets, inserts, glue, paint, boxes",
+      "labor": "Preparation and post-processing time at your hourly rate",
+      "business": "Failure rate, overhead, profit margin, VAT and marketplace fees"
+    }
+  },
+  "SignIn": {
+    "title": "Sign in",
+    "lead": "Keep your printers, filaments and calculations on every device.",
+    "google": "Continue with Google",
+    "github": "Continue with GitHub",
+    "guestNote": "You can also keep calculating without an account.",
+    "localMode": "This instance runs in local mode, so there is nothing to sign in to. Everything you save stays on this machine.",
+    "backHome": "Back to home"
+  },
+  "Footer": {
+    "openSource": "Free and open source under the MIT license.",
+    "github": "Source on GitHub"
+  },
+  "NotFound": {
+    "title": "This page doesn't exist",
+    "backHome": "Back to home"
+  }
+}

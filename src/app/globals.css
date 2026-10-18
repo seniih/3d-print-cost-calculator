@@ -1,0 +1,98 @@
+@import "tailwindcss";
+@import "@fontsource-variable/archivo/wdth.css";
+
+/*
+ * Design tokens
+ * - Steel:   cool workshop greys for surfaces and text.
+ * - PEI:     the bronze of a textured build plate. The single accent.
+ * - Layer:   cost components, read bottom-up like printed layers.
+ */
+:root {
+  --bg: #eef1f4;
+  --surface: #ffffff;
+  --surface-sunk: #e3e8ed;
+  --ink: #1b2229;
+  --ink-soft: #4d5965;
+  --line: #cfd7df;
+  --accent: #a8731c;
+  --accent-ink: #ffffff;
+  --accent-soft: #f3e6cf;
+  --focus: #1f6fd1;
+
+  --layer-1: #2c6e7f;
+  --layer-2: #c99a2e;
+  --layer-3: #6c7a89;
+  --layer-4: #8b5a9e;
+  --layer-5: #3f8f5b;
+  --layer-6: #c4553b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12171c;
+    --surface: #1a2128;
+    --surface-sunk: #232c35;
+    --ink: #e7ecf1;
+    --ink-soft: #9eabb8;
+    --line: #2f3a45;
+    --accent: #e0a64a;
+    --accent-ink: #1b1305;
+    --accent-soft: #3a2c14;
+    --focus: #6aa8ff;
+
+    --layer-1: #4fa3b8;
+    --layer-2: #e0b14d;
+    --layer-3: #8d9bab;
+    --layer-4: #b087c2;
+    --layer-5: #62b57e;
+    --layer-6: #e07a60;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-sunk: var(--surface-sunk);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum" 1;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Condensed, heavy display type: the look of a spec plate on a machine. */
+.display {
+  font-stretch: 72%;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .layer-in {
+    animation: layer-in 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+
+@keyframes layer-in {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "Metadata": {
+    "title": "3D Baskı Maliyet Hesaplayıcı",
+    "description": "Bir 3D baskının gerçek maliyetini hesaplayın: filament, elektrik, yazıcı aşınması, anahtarlık ve mıknatıs gibi ekstralar, işçilik ve başarısız baskılar. Ücretsiz ve açık kaynak."
+  },
+  "Header": {
+    "home": "Ana sayfa",
+    "language": "Dil",
+    "signIn": "Giriş yap",
+    "signOut": "Çıkış yap",
+    "localMode": "Yerel mod",
+    "localModeHint": "Kendi bilgisayarında çalışıyor. Kaydettiğin her şey bu kurulumda saklanır.",
+    "guest": "Misafir",
+    "guestHint": "Çalışmaların bu tarayıcıda saklanıyor. Her cihazdan erişmek için giriş yap."
+  },
+  "Home": {
+    "title": "Her baskının gerçek maliyetini bil",
+    "lead": "Filament faturanın sadece bir kısmı. Elektriği, yazıcı aşınmasını, yapıştırıcıyı, anahtarlığı, mıknatısı, ambalajı, emeğini ve başarısız baskıları ekle; gerçekten satabileceğin bir fiyat bul.",
+    "start": "Hesaplamaya başla",
+    "selfHost": "Kendin kur",
+    "exampleTitle": "Örnek: 12 g PLA, 48 dakikalık bir anahtarlık",
+    "exampleTotal": "Adet maliyeti",
+    "examplePrice": "Önerilen fiyat",
+    "parts": {
+      "filament": "Filament",
+      "electricity": "Elektrik",
+      "wear": "Yazıcı aşınması",
+      "extras": "Halka ve ambalaj",
+      "labor": "İşçilik",
+      "failures": "Başarısız baskılar"
+    },
+    "countsTitle": "Neleri hesaba katar",
+    "counts": {
+      "filament": "Gram bazında filament, purge ve destek firesiyle birlikte",
+      "machine": "Baskı saati başına elektrik, yazıcı amortismanı ve bakım",
+      "extras": "Kendi ekstra listen: anahtarlık halkası, mıknatıs, insert, yapıştırıcı, boya, kutu",
+      "labor": "Hazırlık ve son işlem süresi, saatlik ücretinle",
+      "business": "Başarısızlık oranı, genel gider, kâr marjı, KDV ve pazaryeri komisyonu"
+    }
+  },
+  "SignIn": {
+    "title": "Giriş yap",
+    "lead": "Yazıcıların, filamentlerin ve hesaplamaların her cihazda seninle olsun.",
+    "google": "Google ile devam et",
+    "github": "GitHub ile devam et",
+    "guestNote": "Hesap açmadan da hesaplamaya devam edebilirsin.",
+    "localMode": "Bu kurulum yerel modda çalışıyor, giriş yapmana gerek yok. Kaydettiğin her şey bu bilgisayarda kalır.",
+    "backHome": "Ana sayfaya dön"
+  },
+  "Footer": {
+    "openSource": "MIT lisansıyla ücretsiz ve açık kaynak.",
+    "github": "GitHub'da kaynak kod"
+  },
+  "NotFound": {
+    "title": "Bu sayfa yok",
+    "backHome": "Ana sayfaya dön"
+  }
+}
