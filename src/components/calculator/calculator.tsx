@@ -12,6 +12,7 @@ import {
   formatInput,
   initialState,
   newKey,
+  stateFromInputs,
   printerFields,
   type CalcState,
   type ExtraRow,
@@ -19,17 +20,37 @@ import {
   type Library,
 } from "@/lib/calculator";
 import type { Settings } from "@/lib/library/data";
+import type { LoadedCalculation } from "@/lib/saved/data";
+import { SavePanel, type SavedRef } from "@/components/calculator/save-panel";
 import { splitDuration, type SliceInfo } from "@/lib/slicer/parse";
 import { SliceImport } from "@/components/calculator/slice-import";
 import { currencySymbol } from "@/lib/currency";
 import { Breakdown } from "@/components/calculator/breakdown";
 import { Card, NumInput, SelectInput, TextInput } from "@/components/calculator/inputs";
 
-export function Calculator({ library, settings }: { library: Library; settings: Settings }) {
+export function Calculator({
+  library,
+  settings,
+  products,
+  loaded,
+  defaultProductId,
+}: {
+  library: Library;
+  settings: Settings;
+  products: { id: string; name: string }[];
+  /** A saved calculation being reopened; its numbers and currency win over today's settings. */
+  loaded: LoadedCalculation | null;
+  defaultProductId: string | null;
+}) {
   const t = useTranslations("Calculator");
   const locale = useLocale();
   const format = useFormatter();
-  const [s, setS] = useState(() => initialState(library, settings, locale));
+  const [s, setS] = useState(() =>
+    loaded ? stateFromInputs(loaded.inputs, locale) : initialState(library, settings, locale),
+  );
+  const [saved, setSaved] = useState<SavedRef | null>(
+    loaded ? { id: loaded.id, name: loaded.name, productId: loaded.productId } : null,
+  );
 
   const set = <K extends keyof CalcState>(key: K, value: CalcState[K]) =>
     setS((prev) => ({ ...prev, [key]: value }));
@@ -40,7 +61,7 @@ export function Calculator({ library, settings }: { library: Library; settings: 
   const bad = built.ok ? new Set<string>() : built.bad;
   const issues = built.ok ? [] : built.issues;
 
-  const currency = settings.currency;
+  const currency = loaded?.currency ?? settings.currency;
   const symbol = currencySymbol(currency, locale);
   const perHour = `${symbol} ${t("units.perHour")}`;
   const empty = built.ok && built.inputs.printMinutes === 0 && result?.perPiece.cost === 0;
@@ -485,18 +506,27 @@ export function Calculator({ library, settings }: { library: Library; settings: 
         </details>
       </div>
 
-      <aside
-        aria-live="polite"
-        className="rounded-xl border border-line bg-surface p-5 lg:sticky lg:top-4"
-      >
+      <aside className="rounded-xl border border-line bg-surface p-5 lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto">
         <h2 className="display mb-4 text-2xl">{t("result.title")}</h2>
-        {result && !empty ? (
-          <Breakdown result={result} currency={currency} />
-        ) : (
-          <p className="text-sm leading-relaxed text-ink-soft">
-            {built.ok ? t("result.empty") : problem(t, bad, issues)}
-          </p>
-        )}
+        <div aria-live="polite">
+          {result && !empty ? (
+            <Breakdown result={result} currency={currency} />
+          ) : (
+            <p className="text-sm leading-relaxed text-ink-soft">
+              {built.ok ? t("result.empty") : problem(t, bad, issues)}
+            </p>
+          )}
+        </div>
+        <div className="mt-6">
+          <SavePanel
+            inputs={built.ok && !empty ? built.inputs : null}
+            currency={currency}
+            products={products}
+            saved={saved}
+            defaultProductId={defaultProductId}
+            onSaved={setSaved}
+          />
+        </div>
       </aside>
 
       {/* On small screens the result is far below the form: keep the price in view. */}

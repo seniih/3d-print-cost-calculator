@@ -239,10 +239,8 @@ model Product {
   name        String
   description String?
 
-  /// Storage keys (local disk or S3-compatible bucket).
-  imageKey       String?
-  sourceFileKey  String?
-  sourceFileName String?
+  /// A small JPEG thumbnail as a data URL, resized in the browser before upload.
+  imageData String?
 
   calculations Calculation[]
 

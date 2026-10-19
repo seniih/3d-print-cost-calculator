@@ -218,3 +218,52 @@ export function buildInputs(s: CalcState, locale: string): BuildResult {
   }
   return { ok: true, inputs: parsed.data };
 }
+
+/**
+ * The reverse of `buildInputs`: form state for a saved calculation. Every
+ * printer, filament and extra becomes a typed-in row holding the saved
+ * numbers, so reopening never silently picks up today's library prices.
+ */
+export function stateFromInputs(i: CalculationInputs, locale: string): CalcState {
+  const f = (n: number) => (n === 0 ? "" : formatInput(n, locale));
+  const hours = Math.floor(i.printMinutes / 60);
+  return {
+    printerId: CUSTOM,
+    printerName: i.printer.name,
+    purchasePrice: formatInput(i.printer.purchasePrice, locale),
+    resaleValue: f(i.printer.resaleValue),
+    lifetimeHours: formatInput(i.printer.lifetimeHours, locale),
+    powerWatts: formatInput(i.printer.powerWatts, locale),
+    maintenancePerHour: f(i.printer.maintenanceCostPerHour),
+    hours: f(hours),
+    minutes: f(Math.round((i.printMinutes - hours * 60) * 10_000) / 10_000),
+    piecesPerJob: String(i.piecesPerJob),
+    quantity: String(i.quantity),
+    filaments: i.filaments.map((x) => ({
+      key: newKey(),
+      sourceId: CUSTOM,
+      name: x.name,
+      spoolPrice: formatInput(x.spoolPrice, locale),
+      spoolWeight: formatInput(x.spoolWeightGrams, locale),
+      grams: formatInput(x.grams, locale),
+    })),
+    extras: i.extras.map((x) => ({
+      key: newKey(),
+      sourceId: CUSTOM,
+      name: x.name,
+      unitPrice: formatInput(x.unitPrice, locale),
+      quantity: formatInput(x.quantityPerPiece, locale),
+    })),
+    prepMinutes: f(i.labor.prepMinutesPerJob),
+    postMinutes: f(i.labor.postProcessMinutesPerPiece),
+    laborRate: formatInput(i.labor.ratePerHour, locale),
+    electricityPrice: formatInput(i.electricityPricePerKwh, locale),
+    wastePct: formatInput(i.filamentWastePct, locale),
+    failurePct: formatInput(i.pricing.failureRatePct, locale),
+    overheadPct: formatInput(i.pricing.overheadPct, locale),
+    profitMode: i.pricing.profitMode,
+    profitPct: formatInput(i.pricing.profitPct, locale),
+    taxPct: formatInput(i.pricing.taxRatePct, locale),
+    feePct: formatInput(i.pricing.marketplaceFeePct, locale),
+  };
+}

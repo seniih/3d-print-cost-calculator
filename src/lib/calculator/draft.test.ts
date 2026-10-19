@@ -103,3 +103,18 @@ describe("buildInputs", () => {
     expect(r.ok && r.inputs.labor.prepMinutesPerJob).toBe(0);
   });
 });
+
+describe("stateFromInputs", () => {
+  it.each(["en", "tr"])("round-trips a calculation in %s", async (locale) => {
+    const { stateFromInputs } = await import("./draft");
+    const first = buildInputs(
+      filled(locale, { hours: "1", minutes: "30,5".replace(",", locale === "tr" ? "," : "."), quantity: "12", piecesPerJob: "4" }),
+      locale,
+    );
+    expect(first.ok).toBe(true);
+    if (!first.ok) return;
+    const again = buildInputs(stateFromInputs(first.inputs, locale), locale);
+    expect(again.ok).toBe(true);
+    if (again.ok) expect(again.inputs).toEqual(first.inputs);
+  });
+});

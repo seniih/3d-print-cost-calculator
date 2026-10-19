@@ -57,6 +57,8 @@
   },
   "Nav": {
     "calculator": "Calculator",
+    "products": "Products",
+    "history": "History",
     "library": "Library",
     "settings": "Settings"
   },
@@ -363,6 +365,57 @@
         "noData": "This G-code has no slicer summary, so there is nothing to read. Enter the numbers from your slicer.",
         "unsliced3mf": "This 3MF only holds the model. Slice it and export the sliced file or the G-code."
       }
+    },
+    "save": {
+      "title": "Save this calculation",
+      "name": "Name",
+      "namePlaceholder": "e.g. Keychain, PLA black",
+      "product": "Product",
+      "noProduct": "No product",
+      "newProduct": "New product with this name",
+      "save": "Save",
+      "saving": "Saving…",
+      "update": "Update saved",
+      "saveAsNew": "Save as new",
+      "savedMessage": "Saved. See it in your <link>history</link>.",
+      "errors": {
+        "invalid": "This calculation couldn't be saved. Check the numbers.",
+        "notFound": "The product or saved calculation no longer exists. Reload the page."
+      }
     }
+  },
+  "Products": {
+    "title": "Products",
+    "lead": "The things you make. Link calculations to a product to see how its cost and price change over time.",
+    "add": "Add a product",
+    "newTitle": "New product",
+    "editTitle": "Edit product",
+    "empty": "No products yet. Add one, or choose \"New product\" when you save a calculation.",
+    "calculationCount": "{count, plural, =0 {No calculations} one {# calculation} other {# calculations}}",
+    "newCalculation": "New calculation",
+    "viewHistory": "History",
+    "fields": {
+      "name": "Name",
+      "nameHint": "For example \"Dragon keychain\".",
+      "description": "Notes",
+      "image": "Photo"
+    },
+    "image": {
+      "hint": "Shrunk in your browser to a small thumbnail.",
+      "remove": "Remove photo",
+      "failed": "This image couldn't be read."
+    }
+  },
+  "History": {
+    "title": "History",
+    "lead": "Every calculation you saved. Open one to change it and see the new price.",
+    "empty": "Nothing saved yet. Save a calculation from the calculator and it will show up here.",
+    "filteredBy": "Product: {name}",
+    "clearFilter": "Show all",
+    "quantity": "{count} pieces",
+    "cost": "Cost per piece",
+    "price": "Price",
+    "open": "Open",
+    "deleteConfirm": "Delete \"{name}\"? This can't be undone."
   }
 }

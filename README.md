@@ -80,7 +80,7 @@ Useful scripts:
 - [x] Printer, filament and extras libraries, and default settings
 - [x] Calculator screen with cost breakdown and suggested price
 - [x] Read weight and print time from G-code / 3MF files
-- [ ] Products and calculation history
+- [x] Products and calculation history
 - [ ] PDF quotes for customers
 
 ## Contributing

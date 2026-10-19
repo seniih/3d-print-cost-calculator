@@ -5,6 +5,8 @@ import { Link, usePathname } from "@/i18n/navigation";
 
 const items = [
   { href: "/calculator", key: "calculator" },
+  { href: "/products", key: "products" },
+  { href: "/history", key: "history" },
   { href: "/library", key: "library" },
   { href: "/settings", key: "settings" },
 ] as const;
@@ -14,7 +16,7 @@ export function MainNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center gap-1 text-sm">
+    <nav className="flex items-center gap-0.5 overflow-x-auto px-3 text-sm sm:gap-1 sm:px-0">
       {items.map((item) => {
         const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
         return (
@@ -23,7 +25,7 @@ export function MainNav() {
             href={item.href}
             aria-current={active ? "page" : undefined}
             className={
-              "rounded-md px-3 py-1.5 font-medium " +
+              "shrink-0 whitespace-nowrap rounded-md px-3 py-1.5 font-medium " +
               (active ? "bg-surface-sunk text-ink" : "text-ink-soft hover:text-ink")
             }
           >

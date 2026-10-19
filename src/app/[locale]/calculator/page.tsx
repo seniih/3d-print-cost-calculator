@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import { locale } from "next/root-params";
 import { getSettings, listExtraItems, listFilaments, listPrinters } from "@/lib/library/data";
+import { getCalculation, listProducts } from "@/lib/saved/data";
 import { ClientMessages } from "@/components/client-messages";
 import { Calculator } from "@/components/calculator/calculator";
 
@@ -11,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return { title: t("title") };
 }
 
-export default async function CalculatorPage() {
+export default async function CalculatorPage({ searchParams }: PageProps<"/[locale]/calculator">) {
   const t = await getTranslations("Calculator");
 
   return (
@@ -20,23 +21,44 @@ export default async function CalculatorPage() {
       <p className="mt-3 max-w-2xl leading-relaxed text-ink-soft">{t("lead")}</p>
       <ClientMessages namespaces={["Header", "Form", "Calculator"]}>
         <Suspense fallback={<div className="mt-8 h-[40rem] rounded-xl bg-surface-sunk" />}>
-          <CalculatorLoader />
+          <CalculatorLoader searchParams={searchParams} />
         </Suspense>
       </ClientMessages>
     </div>
   );
 }
 
-async function CalculatorLoader() {
-  const [settings, printers, filaments, extras] = await Promise.all([
+async function CalculatorLoader({
+  searchParams,
+}: {
+  searchParams: PageProps<"/[locale]/calculator">["searchParams"];
+}) {
+  const query = await searchParams;
+  const one = (v: string | string[] | undefined) => (typeof v === "string" ? v : undefined);
+  const loadId = one(query.load);
+
+  const [settings, printers, filaments, extras, products, loaded] = await Promise.all([
     getSettings(await locale()),
     listPrinters(),
     listFilaments(),
     listExtraItems(),
+    listProducts(),
+    loadId ? getCalculation(loadId) : null,
   ]);
+  const wanted = one(query.product);
+  const defaultProductId = products.some((p) => p.id === wanted) ? (wanted ?? null) : null;
+
   return (
     <div className="mt-8">
-      <Calculator library={{ printers, filaments, extras }} settings={settings} />
+      <Calculator
+        // A different saved calculation starts from fresh state.
+        key={loaded?.id ?? "new"}
+        library={{ printers, filaments, extras }}
+        settings={settings}
+        products={products.map((p) => ({ id: p.id, name: p.name }))}
+        loaded={loaded}
+        defaultProductId={defaultProductId}
+      />
     </div>
   );
 }

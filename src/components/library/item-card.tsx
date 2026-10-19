@@ -18,6 +18,7 @@ export function ItemCard({
   onMakeDefault,
   editTitle,
   renderForm,
+  links,
 }: {
   id: string;
   name: string;
@@ -28,6 +29,8 @@ export function ItemCard({
   onMakeDefault?: ServerAction;
   editTitle: string;
   renderForm: (close: () => void) => ReactNode;
+  /** Extra links shown before the edit and remove actions. */
+  links?: ReactNode;
 }) {
   const t = useTranslations("Form");
   const tl = useTranslations("Library");
@@ -59,6 +62,7 @@ export function ItemCard({
         </div>
       </div>
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+        {links}
         {onMakeDefault && !isDefault && (
           <form action={onMakeDefault}>
             <input type="hidden" name="id" value={id} />

@@ -57,6 +57,8 @@
   },
   "Nav": {
     "calculator": "Hesaplayıcı",
+    "products": "Ürünler",
+    "history": "Geçmiş",
     "library": "Kütüphane",
     "settings": "Ayarlar"
   },
@@ -363,6 +365,57 @@
         "noData": "Bu G-code'da dilimleyici özeti yok, okunacak bir şey bulunamadı. Sayıları dilimleyicinden gir.",
         "unsliced3mf": "Bu 3MF sadece modeli içeriyor. Dilimleyip dilimlenmiş dosyayı veya G-code'u dışa aktar."
       }
+    },
+    "save": {
+      "title": "Bu hesabı kaydet",
+      "name": "Ad",
+      "namePlaceholder": "örn. Anahtarlık, siyah PLA",
+      "product": "Ürün",
+      "noProduct": "Ürün yok",
+      "newProduct": "Bu adla yeni ürün",
+      "save": "Kaydet",
+      "saving": "Kaydediliyor…",
+      "update": "Kaydedileni güncelle",
+      "saveAsNew": "Yeni olarak kaydet",
+      "savedMessage": "Kaydedildi. <link>Geçmişte</link> görebilirsin.",
+      "errors": {
+        "invalid": "Bu hesap kaydedilemedi. Sayıları kontrol et.",
+        "notFound": "Ürün veya kayıtlı hesap artık yok. Sayfayı yenile."
+      }
     }
+  },
+  "Products": {
+    "title": "Ürünler",
+    "lead": "Yaptığın şeyler. Maliyetinin ve fiyatının zamanla nasıl değiştiğini görmek için hesapları bir ürüne bağla.",
+    "add": "Ürün ekle",
+    "newTitle": "Yeni ürün",
+    "editTitle": "Ürünü düzenle",
+    "empty": "Henüz ürün yok. Bir tane ekle ya da hesabı kaydederken \"Bu adla yeni ürün\" seç.",
+    "calculationCount": "{count, plural, =0 {Hesap yok} other {# hesap}}",
+    "newCalculation": "Yeni hesap",
+    "viewHistory": "Geçmiş",
+    "fields": {
+      "name": "Ad",
+      "nameHint": "Örneğin \"Ejderha anahtarlık\".",
+      "description": "Notlar",
+      "image": "Fotoğraf"
+    },
+    "image": {
+      "hint": "Tarayıcında küçük bir önizlemeye indirilir.",
+      "remove": "Fotoğrafı kaldır",
+      "failed": "Bu görsel okunamadı."
+    }
+  },
+  "History": {
+    "title": "Geçmiş",
+    "lead": "Kaydettiğin tüm hesaplar. Birini açıp değiştirerek yeni fiyatı görebilirsin.",
+    "empty": "Henüz kayıt yok. Hesaplayıcıdan bir hesabı kaydedersen burada görünür.",
+    "filteredBy": "Ürün: {name}",
+    "clearFilter": "Hepsini göster",
+    "quantity": "{count} parça",
+    "cost": "Parça başı maliyet",
+    "price": "Fiyat",
+    "open": "Aç",
+    "deleteConfirm": "\"{name}\" silinsin mi? Bu geri alınamaz."
   }
 }
