@@ -344,6 +344,25 @@
         "labor": "İşçilik",
         "overhead": "Genel gider"
       }
+    },
+    "import": {
+      "button": "Dosyadan oku",
+      "hint": "G-code veya dilimlenmiş 3MF. Tarayıcında okunur, hiçbir yere yüklenmez.",
+      "reading": "Okunuyor…",
+      "done": "{slicer} dosyasından okundu: {grams} g, {time}.",
+      "time": "{hours} sa {minutes} dk",
+      "multi": "{count} filament bulundu. Ayrı satırlar olarak eklendi.",
+      "estimated": "Dosya sadece filament uzunluğunu veriyor, bu yüzden ağırlık 1,75 mm filament için tahmindir. Dilimleyicinle karşılaştır.",
+      "noTime": "Baskı süresi dosyada yoktu. Kendin gir.",
+      "noWeight": "Filament ağırlığı dosyada yoktu. Kendin gir.",
+      "errors": {
+        "unsupported": "Bu dosya türü desteklenmiyor. .gcode veya .3mf kullan.",
+        "binaryGcode": "Bu bir ikili G-code dosyası (.bgcode). PrusaSlicer'da Printer Settings, General bölümünden \"Binary G-code\" seçeneğini kapatıp yeniden dışa aktar.",
+        "tooLarge": "Bu dosya tarayıcıda okunamayacak kadar büyük.",
+        "unreadable": "Bu dosya okunamadı. Bozuk olabilir.",
+        "noData": "Bu G-code'da dilimleyici özeti yok, okunacak bir şey bulunamadı. Sayıları dilimleyicinden gir.",
+        "unsliced3mf": "Bu 3MF sadece modeli içeriyor. Dilimleyip dilimlenmiş dosyayı veya G-code'u dışa aktar."
+      }
     }
   }
 }

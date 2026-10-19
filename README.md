@@ -79,7 +79,7 @@ Useful scripts:
 - [x] Cost engine with unit tests
 - [x] Printer, filament and extras libraries, and default settings
 - [x] Calculator screen with cost breakdown and suggested price
-- [ ] Read weight and print time from G-code / 3MF files
+- [x] Read weight and print time from G-code / 3MF files
 - [ ] Products and calculation history
 - [ ] PDF quotes for customers
 

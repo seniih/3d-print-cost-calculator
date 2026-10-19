@@ -344,6 +344,25 @@
         "labor": "Labor",
         "overhead": "Overhead"
       }
+    },
+    "import": {
+      "button": "Read from a file",
+      "hint": "G-code or a sliced 3MF. It is read in your browser and never uploaded.",
+      "reading": "Reading…",
+      "done": "Read from {slicer}: {grams} g, {time}.",
+      "time": "{hours} h {minutes} min",
+      "multi": "{count} filaments found. They were added as separate rows.",
+      "estimated": "The file only gives the filament length, so the weight is an estimate for 1.75 mm filament. Check it against your slicer.",
+      "noTime": "The print time wasn't in the file. Enter it yourself.",
+      "noWeight": "The filament weight wasn't in the file. Enter it yourself.",
+      "errors": {
+        "unsupported": "This file type isn't supported. Use .gcode or .3mf.",
+        "binaryGcode": "This is a binary G-code file (.bgcode). In PrusaSlicer, turn off \"Binary G-code\" in Printer Settings, General, and export again.",
+        "tooLarge": "This file is too large to read in the browser.",
+        "unreadable": "This file couldn't be read. It may be damaged.",
+        "noData": "This G-code has no slicer summary, so there is nothing to read. Enter the numbers from your slicer.",
+        "unsliced3mf": "This 3MF only holds the model. Slice it and export the sliced file or the G-code."
+      }
     }
   }
 }

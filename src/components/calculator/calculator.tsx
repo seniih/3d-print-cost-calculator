@@ -9,7 +9,9 @@ import {
   calculate,
   extraRow,
   filamentRow,
+  formatInput,
   initialState,
+  newKey,
   printerFields,
   type CalcState,
   type ExtraRow,
@@ -17,6 +19,8 @@ import {
   type Library,
 } from "@/lib/calculator";
 import type { Settings } from "@/lib/library/data";
+import { splitDuration, type SliceInfo } from "@/lib/slicer/parse";
+import { SliceImport } from "@/components/calculator/slice-import";
 import { currencySymbol } from "@/lib/currency";
 import { Breakdown } from "@/components/calculator/breakdown";
 import { Card, NumInput, SelectInput, TextInput } from "@/components/calculator/inputs";
@@ -50,6 +54,25 @@ export function Calculator({ library, settings }: { library: Library; settings: 
     const p = library.printers.find((x) => x.id === id);
     setS((prev) => (p ? { ...prev, ...printerFields(p, locale) } : { ...prev, printerId: CUSTOM }));
   };
+
+  // --- G-code / 3MF ----------------------------------------------------------
+  const applySlice = (info: SliceInfo) =>
+    setS((prev) => {
+      const next = { ...prev };
+      if (info.printSeconds !== null) {
+        const { hours, minutes } = splitDuration(info.printSeconds);
+        next.hours = hours ? formatInput(hours, locale) : "";
+        next.minutes = minutes ? formatInput(minutes, locale) : "";
+      }
+      if (info.filaments.length > 0) {
+        const fallback = library.filaments.find((f) => f.isDefault) ?? library.filaments[0];
+        next.filaments = info.filaments.map((use, i) => {
+          const base = prev.filaments[i] ?? { ...filamentRow(fallback, locale), key: newKey() };
+          return { ...base, grams: formatInput(use.grams, locale) };
+        });
+      }
+      return next;
+    });
 
   // --- Rows ----------------------------------------------------------------
   const updateFilament = (key: string, patch: Partial<FilamentRow>) =>
@@ -95,6 +118,7 @@ export function Calculator({ library, settings }: { library: Library; settings: 
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-start">
       <div className="flex flex-col gap-6">
         <Card title={t("sections.print")}>
+          <SliceImport onRead={applySlice} />
           <div className="grid grid-cols-2 items-start gap-5 sm:grid-cols-4">
             <>
               <NumInput
