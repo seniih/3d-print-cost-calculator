@@ -1,4 +1,5 @@
 import { getFormatter, getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { REPO_URL } from "@/components/site-footer";
 import { calculate, exampleCurrency, exampleInputs } from "@/lib/calculator";
 
@@ -29,9 +30,15 @@ export default async function HomePage() {
           <h1 className="display text-5xl text-balance sm:text-6xl lg:text-7xl">{t("title")}</h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">{t("lead")}</p>
           <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/calculator"
+              className="rounded-md bg-accent px-5 py-3 font-semibold text-accent-ink hover:opacity-90"
+            >
+              {t("start")}
+            </Link>
             <a
               href={`${REPO_URL}#quick-start`}
-              className="rounded-md bg-accent px-5 py-3 font-semibold text-accent-ink hover:opacity-90"
+              className="rounded-md border border-line bg-surface px-5 py-3 font-semibold hover:bg-surface-sunk"
             >
               {t("selfHost")}
             </a>

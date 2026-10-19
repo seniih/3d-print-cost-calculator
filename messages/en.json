@@ -56,6 +56,7 @@
     "backHome": "Back to home"
   },
   "Nav": {
+    "calculator": "Calculator",
     "library": "Library",
     "settings": "Settings"
   },
@@ -225,6 +226,124 @@
     "units": {
       "perKwh": "/ kWh",
       "perHour": "/ h"
+    }
+  },
+  "Calculator": {
+    "title": "Calculator",
+    "lead": "Describe one print job. The cost and the suggested price update as you type.",
+    "sections": {
+      "print": "The print",
+      "printer": "Printer",
+      "filament": "Filament",
+      "extras": "Extras",
+      "labor": "Your time",
+      "business": "Costs and pricing"
+    },
+    "units": {
+      "hours": "h",
+      "minutes": "min",
+      "perHour": "/h",
+      "perKwh": "/kWh"
+    },
+    "fields": {
+      "printTime": "Print time",
+      "printMinutes": "Minutes",
+      "piecesPerJob": "Pieces per print",
+      "piecesPerJobHint": "How many identical pieces come out of one print (one plate).",
+      "quantity": "Pieces to make",
+      "quantityHint": "The size of the order. Order totals use this."
+    },
+    "printer": {
+      "label": "Printer",
+      "custom": "Other printer…",
+      "summary": "{watts} W. Wear and maintenance: {wear} per print hour.",
+      "purchasePrice": "Purchase price",
+      "resaleValue": "Resale value at end of life",
+      "lifetimeHours": "Expected lifetime",
+      "lifetimeHoursHint": "Print hours before it is worn out. 3,000 to 8,000 is common for hobby printers.",
+      "powerWatts": "Average power draw",
+      "maintenance": "Maintenance",
+      "saveHint": "Want this filled in for you? Add your printers to the <link>library</link>."
+    },
+    "filament": {
+      "label": "Filament {n}",
+      "grams": "Weight",
+      "custom": "Other filament…",
+      "add": "+ Add another filament",
+      "name": "Name",
+      "spoolPrice": "Spool price",
+      "spoolWeight": "Spool weight",
+      "hint": "Enter the weight your slicer reports, supports included. {waste}% is added for purges and skirts."
+    },
+    "extras": {
+      "label": "Extra",
+      "custom": "Other extra…",
+      "add": "+ Add an extra",
+      "empty": "Keyrings, magnets, glue, a gift box? Add anything that goes into each finished piece.",
+      "quantity": "Per piece",
+      "quantityHint": "How many go into one piece. Fractions are fine.",
+      "name": "Name",
+      "unitPrice": "Price per unit"
+    },
+    "labor": {
+      "prep": "Preparation",
+      "prepHint": "Slicing and starting the print. Once per print, shared by its pieces.",
+      "post": "Finishing",
+      "postHint": "Supports, sanding, assembly, packing. For every piece.",
+      "rate": "Hourly rate"
+    },
+    "business": {
+      "collapsed": "From your settings",
+      "lead": "These start from your <link>settings</link>. Change them here for this calculation only.",
+      "electricity": "Electricity price",
+      "waste": "Filament waste",
+      "wasteHint": "Purges, skirts and test lines.",
+      "failure": "Failed prints",
+      "failureHint": "Share of prints that fail and must be redone.",
+      "overhead": "Overhead",
+      "overheadHint": "Rent, software, tools. Added on top of the cost.",
+      "profitMode": "Profit based on",
+      "markup": "Markup (on cost)",
+      "margin": "Margin (on price)",
+      "profit": "Profit",
+      "tax": "VAT / sales tax",
+      "fee": "Marketplace fee",
+      "feeHint": "Taken from the price the buyer pays."
+    },
+    "remove": "Remove",
+    "result": {
+      "title": "Result",
+      "cost": "Cost per piece",
+      "price": "Suggested price",
+      "profit": "Profit",
+      "netPrice": "Price before tax and fees",
+      "tax": "VAT",
+      "fee": "Marketplace fee",
+      "orderTitle": "Order of {count} pieces",
+      "orderCost": "Total cost",
+      "orderProfit": "Total profit",
+      "orderPrice": "Total price",
+      "orderJobs": "Prints needed",
+      "orderHours": "Print time",
+      "orderGrams": "Filament",
+      "jobTitle": "One print",
+      "jobGrams": "Filament, with waste",
+      "jobHours": "Print time",
+      "jobEnergy": "Energy",
+      "empty": "Enter the print time and the filament weight to see the cost.",
+      "badNumber": "One of the numbers can't be read. Check the fields marked in red.",
+      "badMargin": "A margin has to be below 100%. Use a markup for higher profits.",
+      "badFee": "VAT and the marketplace fee together leave nothing of the price.",
+      "badRange": "One of the values is out of range. Check the fields.",
+      "parts": {
+        "filament": "Filament",
+        "electricity": "Electricity",
+        "wear": "Printer wear",
+        "failures": "Failed prints",
+        "extras": "Extras",
+        "labor": "Labor",
+        "overhead": "Overhead"
+      }
     }
   }
 }

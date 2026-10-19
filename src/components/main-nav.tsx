@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 
 const items = [
+  { href: "/calculator", key: "calculator" },
   { href: "/library", key: "library" },
   { href: "/settings", key: "settings" },
 ] as const;

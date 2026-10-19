@@ -56,6 +56,7 @@
     "backHome": "Ana sayfaya dön"
   },
   "Nav": {
+    "calculator": "Hesaplayıcı",
     "library": "Kütüphane",
     "settings": "Ayarlar"
   },
@@ -225,6 +226,124 @@
     "units": {
       "perKwh": "/ kWh",
       "perHour": "/ saat"
+    }
+  },
+  "Calculator": {
+    "title": "Hesaplayıcı",
+    "lead": "Tek bir baskıyı tarif et. Maliyet ve önerilen fiyat yazdıkça güncellenir.",
+    "sections": {
+      "print": "Baskı",
+      "printer": "Yazıcı",
+      "filament": "Filament",
+      "extras": "Ekstralar",
+      "labor": "Emeğin",
+      "business": "Maliyet ve fiyatlama"
+    },
+    "units": {
+      "hours": "sa",
+      "minutes": "dk",
+      "perHour": "/sa",
+      "perKwh": "/kWh"
+    },
+    "fields": {
+      "printTime": "Baskı süresi",
+      "printMinutes": "Dakika",
+      "piecesPerJob": "Baskıdaki parça sayısı",
+      "piecesPerJobHint": "Tek baskıdan (bir tabladan) kaç aynı parça çıkıyor.",
+      "quantity": "Yapılacak parça sayısı",
+      "quantityHint": "Siparişin büyüklüğü. Sipariş toplamları buna göre hesaplanır."
+    },
+    "printer": {
+      "label": "Yazıcı",
+      "custom": "Başka yazıcı…",
+      "summary": "{watts} W. Aşınma ve bakım: baskı saati başına {wear}.",
+      "purchasePrice": "Alış fiyatı",
+      "resaleValue": "Ömür sonunda satış değeri",
+      "lifetimeHours": "Beklenen ömür",
+      "lifetimeHoursHint": "Yıpranana kadar baskı saati. Hobi yazıcılarında genelde 3.000 ile 8.000 arası.",
+      "powerWatts": "Ortalama güç çekişi",
+      "maintenance": "Bakım",
+      "saveHint": "Bunların otomatik dolmasını ister misin? Yazıcılarını <link>kütüphaneye</link> ekle."
+    },
+    "filament": {
+      "label": "Filament {n}",
+      "grams": "Ağırlık",
+      "custom": "Başka filament…",
+      "add": "+ Başka filament ekle",
+      "name": "Ad",
+      "spoolPrice": "Makara fiyatı",
+      "spoolWeight": "Makara ağırlığı",
+      "hint": "Dilimleyicinin gösterdiği ağırlığı gir, destekler dahil. Purge ve skirt için %{waste} eklenir."
+    },
+    "extras": {
+      "label": "Ekstra",
+      "custom": "Başka ekstra…",
+      "add": "+ Ekstra ekle",
+      "empty": "Anahtarlık, mıknatıs, yapıştırıcı, hediye kutusu? Her bitmiş parçaya giren her şeyi ekle.",
+      "quantity": "Parça başına",
+      "quantityHint": "Bir parçaya kaç tane giriyor. Kesirli olabilir.",
+      "name": "Ad",
+      "unitPrice": "Birim fiyat"
+    },
+    "labor": {
+      "prep": "Hazırlık",
+      "prepHint": "Dilimleme ve baskıyı başlatma. Baskı başına bir kez, parçalar arasında paylaşılır.",
+      "post": "Bitirme",
+      "postHint": "Destek temizleme, zımpara, montaj, paketleme. Her parça için.",
+      "rate": "Saatlik ücret"
+    },
+    "business": {
+      "collapsed": "Ayarlarından geliyor",
+      "lead": "Bunlar <link>ayarlarından</link> gelir. Buradan değiştirirsen sadece bu hesaplamayı etkiler.",
+      "electricity": "Elektrik fiyatı",
+      "waste": "Filament firesi",
+      "wasteHint": "Purge, skirt ve deneme çizgileri.",
+      "failure": "Başarısız baskı",
+      "failureHint": "Bozulup yeniden basılması gereken baskıların oranı.",
+      "overhead": "Genel gider",
+      "overheadHint": "Kira, yazılım, aletler. Maliyetin üstüne eklenir.",
+      "profitMode": "Kâr hesabı",
+      "markup": "Markup (maliyet üzerinden)",
+      "margin": "Marj (fiyat üzerinden)",
+      "profit": "Kâr",
+      "tax": "KDV",
+      "fee": "Pazaryeri komisyonu",
+      "feeHint": "Alıcının ödediği fiyattan kesilir."
+    },
+    "remove": "Kaldır",
+    "result": {
+      "title": "Sonuç",
+      "cost": "Parça başı maliyet",
+      "price": "Önerilen fiyat",
+      "profit": "Kâr",
+      "netPrice": "Vergi ve komisyon öncesi fiyat",
+      "tax": "KDV",
+      "fee": "Pazaryeri komisyonu",
+      "orderTitle": "{count} parçalık sipariş",
+      "orderCost": "Toplam maliyet",
+      "orderProfit": "Toplam kâr",
+      "orderPrice": "Toplam fiyat",
+      "orderJobs": "Gereken baskı",
+      "orderHours": "Baskı süresi",
+      "orderGrams": "Filament",
+      "jobTitle": "Tek baskı",
+      "jobGrams": "Filament, fire dahil",
+      "jobHours": "Baskı süresi",
+      "jobEnergy": "Enerji",
+      "empty": "Maliyeti görmek için baskı süresini ve filament ağırlığını gir.",
+      "badNumber": "Sayılardan biri okunamıyor. Kırmızı işaretli alanlara bak.",
+      "badMargin": "Marj %100'ün altında olmalı. Daha yüksek kâr için markup kullan.",
+      "badFee": "KDV ve pazaryeri komisyonu birlikte fiyattan hiçbir şey bırakmıyor.",
+      "badRange": "Değerlerden biri aralık dışında. Alanlara bak.",
+      "parts": {
+        "filament": "Filament",
+        "electricity": "Elektrik",
+        "wear": "Yazıcı aşınması",
+        "failures": "Başarısız baskı",
+        "extras": "Ekstralar",
+        "labor": "İşçilik",
+        "overhead": "Genel gider"
+      }
     }
   }
 }
