@@ -13,9 +13,28 @@ A free, open-source, self-hostable web app that adds up every part of a print:
 
 …and turns it into a cost per piece and a suggested selling price. Available in English and Turkish.
 
+## Features
+
+- **Live calculator** with the cost shown as stacked layers, the price build-up (profit, VAT, marketplace fee), order totals and per-print figures.
+- **Read your slicer's numbers**: drop a G-code file (PrusaSlicer, OrcaSlicer, Bambu Studio, Cura, Simplify3D) or a sliced Bambu/Orca 3MF and the print time and filament weight fill themselves in. Files are read in your browser and never uploaded.
+- **Your own library** of printers, filaments and extras, with defaults and one-click reuse.
+- **Products and history**: save calculations, group them under a product (with a photo), reopen them later and see how a price changes.
+- **PDF quotes** for customers, with your business name. They never show your costs or profit.
+- **Markup or margin**, VAT and marketplace fees, in TRY, USD or EUR.
+- **Private by default**: guests get their own space without signing up; sign in with Google or GitHub to keep it across devices.
+
+<p align="center">
+  <img src="docs/screenshots/library.png" alt="Printer library" width="420">
+  <img src="docs/screenshots/quote-pdf.png" alt="A PDF quote" width="300">
+</p>
+
 The math is documented in [docs/cost-model.md](docs/cost-model.md).
 
-> **Status:** early development. See the [roadmap](#roadmap).
+<p align="center">
+  <img src="docs/screenshots/calculator.png" alt="The calculator: inputs on the left, cost layers and suggested price on the right" width="860">
+</p>
+
+> **Status:** all planned features for the first release are in. It is young software: expect rough edges and please [open an issue](../../issues) when you hit one.
 
 ## Quick start
 
@@ -71,6 +90,7 @@ Useful scripts:
 - [Better Auth](https://www.better-auth.com) — Google, GitHub and guest sessions
 - [next-intl](https://next-intl.dev) — English and Turkish
 - [Tailwind CSS](https://tailwindcss.com)
+- [pdf-lib](https://pdf-lib.js.org) for quotes, [fflate](https://github.com/101arrowz/fflate) for reading 3MF files
 - Docker Compose for one-command self-hosting
 
 ## Roadmap
@@ -82,6 +102,8 @@ Useful scripts:
 - [x] Read weight and print time from G-code / 3MF files
 - [x] Products and calculation history
 - [x] PDF quotes for customers
+
+Ideas for later (not started): PrusaSlicer binary G-code (`.bgcode`), quotes with several items, CSV export of the history, more languages, an API.
 
 ## Contributing
 
