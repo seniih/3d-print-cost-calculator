@@ -27,6 +27,8 @@ export type Settings = {
   profitPct: number;
   taxRatePct: number;
   marketplaceFeePct: number;
+  /** Printed on quotes. */
+  businessName: string | null;
   /** False until the user saves the settings form once. */
   saved: boolean;
 };
@@ -82,6 +84,7 @@ export function defaultSettings(locale: string): Settings {
     profitPct: 30,
     taxRatePct: 0,
     marketplaceFeePct: 0,
+    businessName: null,
     saved: false,
   };
 }
@@ -104,6 +107,7 @@ export async function getSettings(locale: string): Promise<Settings> {
     profitPct: num(row.profitPct),
     taxRatePct: num(row.taxRatePct),
     marketplaceFeePct: num(row.marketplaceFeePct),
+    businessName: row.businessName,
     saved: true,
   };
 }

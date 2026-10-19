@@ -77,6 +77,12 @@ export function HistoryList({
                   >
                     {t("open")}
                   </Link>
+                  <Link
+                    href={`/quote/${r.id}`}
+                    className="underline-offset-4 hover:underline"
+                  >
+                    {t("quote")}
+                  </Link>
                   <form
                     action={deleteCalculation}
                     onSubmit={(e) => {

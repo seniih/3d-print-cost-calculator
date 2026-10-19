@@ -40,3 +40,9 @@ Depreciation is straight-line **by usage**, not by calendar time: a printer that
 ## Precision
 
 The engine works in full floating-point precision and rounds results to 4 decimals, so tiny costs such as a few cents of electricity aren't lost. The interface rounds to 2 decimals for display.
+
+## Quotes
+
+A quote is a one-page PDF for a customer. It shows the item, quantity, price per piece and totals, and never the cost breakdown or your profit. The price starts at your suggested price (which includes VAT and any marketplace fee) and can be changed before downloading. When the calculation has a VAT rate, the PDF splits the total into a net amount and VAT.
+
+The PDF uses Noto Sans (SIL Open Font License, see `assets/fonts/OFL.txt`), trimmed to Latin letters and currency signs, so Turkish letters and the lira sign print correctly.

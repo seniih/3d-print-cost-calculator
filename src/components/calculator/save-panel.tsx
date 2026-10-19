@@ -111,6 +111,11 @@ export function SavePanel({
           </button>
         )}
       </div>
+      {saved && (
+        <Link href={`/quote/${saved.id}`} className="text-sm font-medium underline underline-offset-4">
+          {t("quote")}
+        </Link>
+      )}
       <p aria-live="polite" className="text-sm empty:hidden">
         {message === "saved" && (
           <span>

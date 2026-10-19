@@ -14,6 +14,7 @@ const settings: Settings = {
   profitPct: 30,
   taxRatePct: 0,
   marketplaceFeePct: 0,
+  businessName: null,
   saved: true,
 };
 

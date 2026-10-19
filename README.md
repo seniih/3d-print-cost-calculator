@@ -81,7 +81,7 @@ Useful scripts:
 - [x] Calculator screen with cost breakdown and suggested price
 - [x] Read weight and print time from G-code / 3MF files
 - [x] Products and calculation history
-- [ ] PDF quotes for customers
+- [x] PDF quotes for customers
 
 ## Contributing
 

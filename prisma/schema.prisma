@@ -149,6 +149,8 @@ model UserSettings {
   profitPct         Decimal    @default(30) @db.Decimal(6, 2)
   taxRatePct        Decimal    @default(0) @db.Decimal(6, 2)
   marketplaceFeePct Decimal    @default(0) @db.Decimal(6, 2)
+  /// Shown on customer quotes (PDF).
+  businessName      String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

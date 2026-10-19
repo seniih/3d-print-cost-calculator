@@ -16,10 +16,15 @@ export async function SiteHeader() {
           <span className="hidden lg:inline">{t("title")}</span>
         </Link>
         <div className="order-last -mx-3 w-full sm:order-none sm:mx-0 sm:w-auto">
-          <MainNav />
+          {/* usePathname() needs the URL, which is only known at request time on dynamic routes. */}
+          <Suspense fallback={<nav className="h-9" aria-hidden="true" />}>
+            <MainNav />
+          </Suspense>
         </div>
         <div className="ml-auto flex items-center gap-3">
-          <LanguageSwitcher />
+          <Suspense fallback={<span className="h-8 w-24 rounded-md bg-surface-sunk" />}>
+            <LanguageSwitcher />
+          </Suspense>
           {/* Reads the session, so it streams in after the static shell. */}
           <Suspense fallback={<span className="h-8 w-20 rounded-md bg-surface-sunk" />}>
             <AccountStatus />

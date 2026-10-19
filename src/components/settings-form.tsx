@@ -8,7 +8,7 @@ import { CURRENCIES, PROFIT_MODES, type Currency, type ProfitMode } from "@/lib/
 import { saveSettings } from "@/lib/library/actions";
 import { parseDecimal } from "@/lib/forms";
 import { FormShell } from "@/components/form/form-shell";
-import { NumberField, SelectField } from "@/components/form/fields";
+import { NumberField, SelectField, TextField } from "@/components/form/fields";
 
 export function SettingsForm({ settings }: { settings: Settings }) {
   const t = useTranslations("Settings");
@@ -61,6 +61,18 @@ export function SettingsForm({ settings }: { settings: Settings }) {
             <ProfitFields settings={settings} currency={currency} errors={errors} />
             <Percent name="taxRatePct" settings={settings} errors={errors} />
             <Percent name="marketplaceFeePct" settings={settings} errors={errors} />
+          </Section>
+
+          <Section title={t("sections.quotes")}>
+            <TextField
+              name="businessName"
+              label={f("businessName")}
+              hint={f("businessNameHint")}
+              optional
+              defaultValue={settings.businessName}
+              error={errors.businessName}
+              className="sm:col-span-2"
+            />
           </Section>
         </>
       )}

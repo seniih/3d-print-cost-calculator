@@ -192,7 +192,8 @@
       "money": "Para birimi",
       "costs": "Enerji ve işçilik",
       "production": "Üretim",
-      "pricing": "Fiyatlandırma"
+      "pricing": "Fiyatlandırma",
+      "quotes": "Teklifler"
     },
     "fields": {
       "currency": "Para birimi",
@@ -212,7 +213,9 @@
       "taxRatePct": "KDV",
       "taxRatePctHint": "Alıcının ödediği fiyata eklenir. Uygulamıyorsan 0 gir.",
       "marketplaceFeePct": "Pazaryeri komisyonu",
-      "marketplaceFeePctHint": "Alıcının ödediği fiyattan kesilen komisyon."
+      "marketplaceFeePctHint": "Alıcının ödediği fiyattan kesilen komisyon.",
+      "businessName": "İşletme adı",
+      "businessNameHint": "PDF tekliflerinin en üstünde yazar. Her teklifte değiştirebilirsin."
     },
     "profitModes": {
       "MARKUP": "Maliyete ekle (markup)",
@@ -381,7 +384,8 @@
       "errors": {
         "invalid": "Bu hesap kaydedilemedi. Sayıları kontrol et.",
         "notFound": "Ürün veya kayıtlı hesap artık yok. Sayfayı yenile."
-      }
+      },
+      "quote": "Müşteri için teklif hazırla"
     }
   },
   "Products": {
@@ -416,6 +420,42 @@
     "cost": "Parça başı maliyet",
     "price": "Fiyat",
     "open": "Aç",
-    "deleteConfirm": "\"{name}\" silinsin mi? Bu geri alınamaz."
+    "deleteConfirm": "\"{name}\" silinsin mi? Bu geri alınamaz.",
+    "quote": "Teklif hazırla"
+  },
+  "Quote": {
+    "title": "Teklif",
+    "lead": "Müşterin için tek sayfalık PDF: ürün, adet, fiyat ve toplamlar. Maliyetlerin ve kârın asla gösterilmez.",
+    "fields": {
+      "business": "İşletme adın",
+      "customer": "Müşteri",
+      "item": "Ürün",
+      "price": "Parça başı fiyat",
+      "priceHint": "Önerilen fiyatınla başlar. Yuvarlamak veya indirim yapmak için değiştir.",
+      "quantity": "Adet",
+      "days": "Geçerlilik",
+      "daysHint": "0 yazarsan tarih eklenmez.",
+      "daysUnit": "gün",
+      "notes": "Notlar",
+      "notesPlaceholder": "Teslim süresi, ödeme koşulları, renkler…"
+    },
+    "totalLabel": "{rate, plural, =0 {Toplam} other {Toplam, KDV dahil}}",
+    "download": "PDF'i indir",
+    "pdf": {
+      "title": "Teklif",
+      "number": "No",
+      "date": "Tarih",
+      "validUntil": "Geçerlilik",
+      "from": "Gönderen",
+      "preparedFor": "Hazırlanan",
+      "item": "Ürün",
+      "quantity": "Adet",
+      "unitPrice": "Birim fiyat",
+      "total": "Toplam",
+      "subtotal": "Ara toplam",
+      "vat": "KDV %{rate}",
+      "notes": "Notlar"
+    },
+    "make": "Teklif hazırla"
   }
 }

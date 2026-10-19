@@ -43,6 +43,7 @@ export const settingsSchema = z
     profitPct: percent(1000),
     taxRatePct: percent(100),
     marketplaceFeePct: percent(95),
+    businessName: optionalText(120),
   })
   .superRefine((v, ctx) => {
     if (v.profitMode === "MARGIN" && v.profitPct >= 100) {

@@ -192,7 +192,8 @@
       "money": "Currency",
       "costs": "Energy and labor",
       "production": "Production",
-      "pricing": "Pricing"
+      "pricing": "Pricing",
+      "quotes": "Quotes"
     },
     "fields": {
       "currency": "Currency",
@@ -212,7 +213,9 @@
       "taxRatePct": "VAT",
       "taxRatePctHint": "Added to the price the buyer pays. Use 0 if you don't charge it.",
       "marketplaceFeePct": "Marketplace fee",
-      "marketplaceFeePctHint": "Commission taken from the price the buyer pays."
+      "marketplaceFeePctHint": "Commission taken from the price the buyer pays.",
+      "businessName": "Business name",
+      "businessNameHint": "Printed at the top of your PDF quotes. You can change it on each quote."
     },
     "profitModes": {
       "MARKUP": "Markup on cost",
@@ -381,7 +384,8 @@
       "errors": {
         "invalid": "This calculation couldn't be saved. Check the numbers.",
         "notFound": "The product or saved calculation no longer exists. Reload the page."
-      }
+      },
+      "quote": "Make a quote for a customer"
     }
   },
   "Products": {
@@ -416,6 +420,42 @@
     "cost": "Cost per piece",
     "price": "Price",
     "open": "Open",
-    "deleteConfirm": "Delete \"{name}\"? This can't be undone."
+    "deleteConfirm": "Delete \"{name}\"? This can't be undone.",
+    "quote": "Make a quote"
+  },
+  "Quote": {
+    "title": "Quote",
+    "lead": "A one-page PDF for your customer: item, quantity, price and totals. Your costs and profit are never shown.",
+    "fields": {
+      "business": "Your business name",
+      "customer": "Customer",
+      "item": "Item",
+      "price": "Price per piece",
+      "priceHint": "Starts at your suggested price. Change it to round it or to give a discount.",
+      "quantity": "Quantity",
+      "days": "Valid for",
+      "daysHint": "0 leaves the date out.",
+      "daysUnit": "days",
+      "notes": "Notes",
+      "notesPlaceholder": "Delivery time, payment terms, colors…"
+    },
+    "totalLabel": "{rate, plural, =0 {Total} other {Total, VAT included}}",
+    "download": "Download PDF",
+    "pdf": {
+      "title": "Quote",
+      "number": "No.",
+      "date": "Date",
+      "validUntil": "Valid until",
+      "from": "From",
+      "preparedFor": "Prepared for",
+      "item": "Item",
+      "quantity": "Qty",
+      "unitPrice": "Unit price",
+      "total": "Total",
+      "subtotal": "Subtotal",
+      "vat": "VAT {rate}%",
+      "notes": "Notes"
+    },
+    "make": "Make a quote"
   }
 }
