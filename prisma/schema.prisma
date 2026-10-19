@@ -98,6 +98,11 @@ enum Currency {
   EUR
 }
 
+enum ProfitMode {
+  MARKUP // price = cost × (1 + p)
+  MARGIN // profit is p of the net price
+}
+
 enum FilamentMaterial {
   PLA
   PETG
@@ -137,11 +142,13 @@ model UserSettings {
   laborRatePerHour       Decimal @default(0) @db.Decimal(12, 4)
 
   // Percentages are stored as plain numbers: 10 means 10 %.
-  failureRatePct    Decimal @default(5) @db.Decimal(6, 2)
-  overheadPct       Decimal @default(0) @db.Decimal(6, 2)
-  profitMarginPct   Decimal @default(30) @db.Decimal(6, 2)
-  taxRatePct        Decimal @default(0) @db.Decimal(6, 2)
-  marketplaceFeePct Decimal @default(0) @db.Decimal(6, 2)
+  filamentWastePct  Decimal    @default(0) @db.Decimal(6, 2)
+  failureRatePct    Decimal    @default(5) @db.Decimal(6, 2)
+  overheadPct       Decimal    @default(0) @db.Decimal(6, 2)
+  profitMode        ProfitMode @default(MARKUP)
+  profitPct         Decimal    @default(30) @db.Decimal(6, 2)
+  taxRatePct        Decimal    @default(0) @db.Decimal(6, 2)
+  marketplaceFeePct Decimal    @default(0) @db.Decimal(6, 2)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -159,6 +166,8 @@ model Printer {
   model String?
 
   purchasePrice          Decimal @db.Decimal(12, 4)
+  /// What the printer can be sold for at the end of its life.
+  resaleValue            Decimal @default(0) @db.Decimal(12, 4)
   /// Expected useful life in print hours, used for depreciation.
   lifetimeHours          Int
   /// Average power draw while printing.

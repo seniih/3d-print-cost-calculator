@@ -16,7 +16,7 @@ A calculation describes **one print job** (one plate). A job can produce several
 | --- | --- |
 | Filament | Σ grams × (1 + waste %) × spool price ÷ spool weight |
 | Electricity | power (kW) × print hours × price per kWh |
-| Depreciation | printer price ÷ lifetime hours × print hours |
+| Depreciation | (printer price − resale value) ÷ lifetime hours × print hours |
 | Maintenance | maintenance per hour × print hours |
 | Failures | (filament + electricity + depreciation + maintenance) × f ÷ (1 − f) |
 | Labor | hourly rate × (prep minutes ÷ pieces + post-processing minutes) ÷ 60 |
@@ -24,6 +24,10 @@ A calculation describes **one print job** (one plate). A job can produce several
 | Overhead | sum of all of the above × overhead % |
 
 **Why `f ÷ (1 − f)` for failures?** If a fraction `f` of jobs fail, you need on average `1 ÷ (1 − f)` attempts per good job. The extra attempts waste filament, electricity and machine time, but not extras or post-processing, which only happen on prints that succeeded. At a 10 % failure rate this adds about 11 % to the machine work.
+
+## Printer wear
+
+Depreciation is straight-line **by usage**, not by calendar time: a printer that runs 20 hours a day wears out faster than one used on weekends. You enter what you paid, what you expect to sell it for at the end (0 if you'll run it into the ground), and how many print hours you expect from it. Maintenance (nozzles, build plates, belts, lubricant) is a separate cost per print hour.
 
 ## Price
 

@@ -54,5 +54,177 @@
   "NotFound": {
     "title": "This page doesn't exist",
     "backHome": "Back to home"
+  },
+  "Nav": {
+    "library": "Library",
+    "settings": "Settings"
+  },
+  "Form": {
+    "save": "Save",
+    "saving": "Saving…",
+    "saved": "Saved",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "remove": "Remove",
+    "removeConfirm": "Remove {name}? Saved calculations keep their numbers.",
+    "optional": "optional",
+    "errors": {
+      "required": "Fill this in.",
+      "number": "Enter a number, like 12.5.",
+      "min": "This is too low.",
+      "max": "This is too high.",
+      "integer": "Use a whole number.",
+      "tooLong": "This is too long.",
+      "invalid": "This doesn't look right.",
+      "notFound": "This item no longer exists. Reload the page."
+    }
+  },
+  "Library": {
+    "title": "Library",
+    "lead": "Save your printers, filaments and extras once, then pick them in every calculation.",
+    "tabs": {
+      "printers": "Printers",
+      "filaments": "Filaments",
+      "extras": "Extras"
+    },
+    "default": "Default",
+    "makeDefault": "Make default",
+    "printers": {
+      "add": "Add printer",
+      "empty": "No printers yet. Add the one you print with to count electricity and wear.",
+      "newTitle": "New printer",
+      "editTitle": "Edit printer",
+      "wearPerHour": "{amount} wear per print hour",
+      "power": "{watts} W",
+      "fields": {
+        "name": "Name",
+        "nameHint": "What you call it, e.g. \"P1S in the office\".",
+        "brand": "Brand",
+        "model": "Model",
+        "purchasePrice": "Purchase price",
+        "resaleValue": "Resale value",
+        "resaleValueHint": "What you expect to sell it for at the end. Leave empty if you'll use it until it dies.",
+        "lifetimeHours": "Lifetime",
+        "lifetimeHoursHint": "Print hours you expect before replacing it. 3,000–8,000 h is common for hobby FDM printers.",
+        "powerWatts": "Average power",
+        "powerWattsHint": "While printing, including the heated bed. Check a smart plug, or the spec sheet (often 100–350 W).",
+        "maintenanceCostPerHour": "Maintenance per hour",
+        "maintenanceCostPerHourHint": "Nozzles, build plates, belts, lubricant, spread per print hour.",
+        "notes": "Notes"
+      },
+      "units": {
+        "hours": "h",
+        "watts": "W",
+        "perHour": "/ h"
+      }
+    },
+    "filaments": {
+      "add": "Add filament",
+      "empty": "No filaments yet. Add the spools you buy so prints are costed by the gram.",
+      "newTitle": "New filament",
+      "editTitle": "Edit filament",
+      "perKg": "{amount} / kg",
+      "fields": {
+        "name": "Name",
+        "nameHint": "e.g. \"PLA Matte Black\".",
+        "brand": "Brand",
+        "material": "Material",
+        "color": "Color",
+        "colorHex": "Swatch",
+        "spoolPrice": "Spool price",
+        "spoolWeightGrams": "Net weight",
+        "spoolWeightGramsHint": "Filament only, without the spool. Usually 1000 g.",
+        "notes": "Notes"
+      },
+      "units": {
+        "grams": "g"
+      },
+      "materials": {
+        "PLA": "PLA",
+        "PETG": "PETG",
+        "ABS": "ABS",
+        "ASA": "ASA",
+        "TPU": "TPU",
+        "NYLON": "Nylon",
+        "PC": "PC",
+        "CF_COMPOSITE": "Carbon-fiber composite",
+        "RESIN": "Resin",
+        "OTHER": "Other"
+      }
+    },
+    "extras": {
+      "add": "Add extra",
+      "empty": "No extras yet. Add keyrings, magnets, inserts, glue or packaging you put into prints.",
+      "newTitle": "New extra",
+      "editTitle": "Edit extra",
+      "perUnit": "{amount} per {unit}",
+      "fields": {
+        "name": "Name",
+        "nameHint": "e.g. \"Keyring 25 mm\", \"Magnet 6×2\", \"Zip bag\".",
+        "category": "Category",
+        "unit": "Sold by",
+        "unitPrice": "Price per unit",
+        "notes": "Notes"
+      },
+      "categories": {
+        "HARDWARE": "Hardware",
+        "CONSUMABLE": "Consumable",
+        "PACKAGING": "Packaging",
+        "OTHER": "Other"
+      },
+      "units": {
+        "PIECE": "piece",
+        "GRAM": "gram",
+        "MILLILITER": "ml",
+        "CENTIMETER": "cm",
+        "PACK": "pack"
+      }
+    }
+  },
+  "Settings": {
+    "title": "Settings",
+    "lead": "These values fill in every new calculation. You can still change them for a single print.",
+    "notSavedYet": "These are starting values. Save to make them yours.",
+    "sections": {
+      "money": "Currency",
+      "costs": "Energy and labor",
+      "production": "Production",
+      "pricing": "Pricing"
+    },
+    "fields": {
+      "currency": "Currency",
+      "currencyHint": "Used for every price you enter. Amounts aren't converted.",
+      "electricityPricePerKwh": "Electricity price",
+      "electricityPricePerKwhHint": "Per kWh, from your bill, taxes included.",
+      "laborRatePerHour": "Your hourly rate",
+      "laborRatePerHourHint": "What an hour of your time is worth. Use 0 to leave labor out.",
+      "filamentWastePct": "Filament waste",
+      "filamentWastePctHint": "Purges, skirts and test lines on top of what the slicer reports.",
+      "failureRatePct": "Failed prints",
+      "failureRatePctHint": "Share of prints that fail and get reprinted.",
+      "overheadPct": "Overhead",
+      "overheadPctHint": "Rent, software, tools and other running costs, as a share of production cost.",
+      "profitMode": "Profit is",
+      "profitPct": "Profit",
+      "taxRatePct": "VAT",
+      "taxRatePctHint": "Added to the price the buyer pays. Use 0 if you don't charge it.",
+      "marketplaceFeePct": "Marketplace fee",
+      "marketplaceFeePctHint": "Commission taken from the price the buyer pays."
+    },
+    "profitModes": {
+      "MARKUP": "Markup on cost",
+      "MARKUP_hint": "A cost of {cost} with {pct} markup sells for {price}.",
+      "MARGIN": "Margin of the price",
+      "MARGIN_hint": "A cost of {cost} with {pct} margin sells for {price}."
+    },
+    "currencies": {
+      "TRY": "Turkish lira (₺)",
+      "USD": "US dollar ($)",
+      "EUR": "Euro (€)"
+    },
+    "units": {
+      "perKwh": "/ kWh",
+      "perHour": "/ h"
+    }
   }
 }

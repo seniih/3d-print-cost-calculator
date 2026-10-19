@@ -26,12 +26,12 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
   if (!hasLocale(routing.locales, locale)) notFound();
 
   // Only ship the strings client components actually use.
-  const { Header } = await getMessages();
+  const { Header, Nav } = await getMessages();
 
   return (
     <html lang={locale} className="h-full antialiased">
       <body className="flex min-h-full flex-col">
-        <NextIntlClientProvider messages={{ Header }}>
+        <NextIntlClientProvider messages={{ Header, Nav }}>
           <SiteHeader />
           <main className="flex-1">{children}</main>
           <SiteFooter />

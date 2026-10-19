@@ -54,5 +54,177 @@
   "NotFound": {
     "title": "Bu sayfa yok",
     "backHome": "Ana sayfaya dön"
+  },
+  "Nav": {
+    "library": "Kütüphane",
+    "settings": "Ayarlar"
+  },
+  "Form": {
+    "save": "Kaydet",
+    "saving": "Kaydediliyor…",
+    "saved": "Kaydedildi",
+    "cancel": "Vazgeç",
+    "edit": "Düzenle",
+    "remove": "Kaldır",
+    "removeConfirm": "{name} kaldırılsın mı? Kayıtlı hesaplamalar rakamlarını korur.",
+    "optional": "isteğe bağlı",
+    "errors": {
+      "required": "Bu alanı doldur.",
+      "number": "12,5 gibi bir sayı gir.",
+      "min": "Bu değer çok düşük.",
+      "max": "Bu değer çok yüksek.",
+      "integer": "Tam sayı gir.",
+      "tooLong": "Bu çok uzun.",
+      "invalid": "Bu doğru görünmüyor.",
+      "notFound": "Bu kayıt artık yok. Sayfayı yenile."
+    }
+  },
+  "Library": {
+    "title": "Kütüphane",
+    "lead": "Yazıcılarını, filamentlerini ve ekstralarını bir kez kaydet, her hesaplamada seç.",
+    "tabs": {
+      "printers": "Yazıcılar",
+      "filaments": "Filamentler",
+      "extras": "Ekstralar"
+    },
+    "default": "Varsayılan",
+    "makeDefault": "Varsayılan yap",
+    "printers": {
+      "add": "Yazıcı ekle",
+      "empty": "Henüz yazıcı yok. Elektrik ve aşınmayı hesaplamak için kullandığın yazıcıyı ekle.",
+      "newTitle": "Yeni yazıcı",
+      "editTitle": "Yazıcıyı düzenle",
+      "wearPerHour": "Baskı saati başına {amount} aşınma",
+      "power": "{watts} W",
+      "fields": {
+        "name": "Ad",
+        "nameHint": "Ona ne diyorsan, ör. \"Ofisteki P1S\".",
+        "brand": "Marka",
+        "model": "Model",
+        "purchasePrice": "Satın alma fiyatı",
+        "resaleValue": "İkinci el değeri",
+        "resaleValueHint": "Ömrünün sonunda kaça satmayı beklediğin. Bozulana kadar kullanacaksan boş bırak.",
+        "lifetimeHours": "Ömür",
+        "lifetimeHoursHint": "Değiştirmeden önce beklediğin baskı saati. Hobi FDM yazıcılar için 3.000–8.000 saat yaygındır.",
+        "powerWatts": "Ortalama güç",
+        "powerWattsHint": "Baskı sırasında, ısıtmalı tabla dahil. Akıllı prizle ölç ya da teknik özelliklere bak (genelde 100–350 W).",
+        "maintenanceCostPerHour": "Saatlik bakım",
+        "maintenanceCostPerHourHint": "Nozzle, baskı plakası, kayış, yağ; baskı saatine bölünmüş.",
+        "notes": "Notlar"
+      },
+      "units": {
+        "hours": "saat",
+        "watts": "W",
+        "perHour": "/ saat"
+      }
+    },
+    "filaments": {
+      "add": "Filament ekle",
+      "empty": "Henüz filament yok. Baskılar gram bazında hesaplansın diye aldığın makaraları ekle.",
+      "newTitle": "Yeni filament",
+      "editTitle": "Filamenti düzenle",
+      "perKg": "{amount} / kg",
+      "fields": {
+        "name": "Ad",
+        "nameHint": "ör. \"PLA Mat Siyah\".",
+        "brand": "Marka",
+        "material": "Malzeme",
+        "color": "Renk",
+        "colorHex": "Renk örneği",
+        "spoolPrice": "Makara fiyatı",
+        "spoolWeightGrams": "Net ağırlık",
+        "spoolWeightGramsHint": "Makara hariç, sadece filament. Genelde 1000 g.",
+        "notes": "Notlar"
+      },
+      "units": {
+        "grams": "g"
+      },
+      "materials": {
+        "PLA": "PLA",
+        "PETG": "PETG",
+        "ABS": "ABS",
+        "ASA": "ASA",
+        "TPU": "TPU",
+        "NYLON": "Naylon",
+        "PC": "PC",
+        "CF_COMPOSITE": "Karbon fiber katkılı",
+        "RESIN": "Reçine",
+        "OTHER": "Diğer"
+      }
+    },
+    "extras": {
+      "add": "Ekstra ekle",
+      "empty": "Henüz ekstra yok. Baskılara eklediğin anahtarlık halkası, mıknatıs, insert, yapıştırıcı ya da ambalajı ekle.",
+      "newTitle": "Yeni ekstra",
+      "editTitle": "Ekstrayı düzenle",
+      "perUnit": "{unit} başına {amount}",
+      "fields": {
+        "name": "Ad",
+        "nameHint": "ör. \"Anahtarlık halkası 25 mm\", \"Mıknatıs 6×2\", \"Kilitli poşet\".",
+        "category": "Kategori",
+        "unit": "Birim",
+        "unitPrice": "Birim fiyatı",
+        "notes": "Notlar"
+      },
+      "categories": {
+        "HARDWARE": "Donanım",
+        "CONSUMABLE": "Sarf malzemesi",
+        "PACKAGING": "Ambalaj",
+        "OTHER": "Diğer"
+      },
+      "units": {
+        "PIECE": "adet",
+        "GRAM": "gram",
+        "MILLILITER": "ml",
+        "CENTIMETER": "cm",
+        "PACK": "paket"
+      }
+    }
+  },
+  "Settings": {
+    "title": "Ayarlar",
+    "lead": "Bu değerler her yeni hesaplamaya otomatik gelir. Tek bir baskı için yine de değiştirebilirsin.",
+    "notSavedYet": "Bunlar başlangıç değerleri. Kendine göre ayarlamak için kaydet.",
+    "sections": {
+      "money": "Para birimi",
+      "costs": "Enerji ve işçilik",
+      "production": "Üretim",
+      "pricing": "Fiyatlandırma"
+    },
+    "fields": {
+      "currency": "Para birimi",
+      "currencyHint": "Girdiğin tüm fiyatlar için kullanılır. Tutarlar çevrilmez.",
+      "electricityPricePerKwh": "Elektrik fiyatı",
+      "electricityPricePerKwhHint": "kWh başına, faturandan, vergiler dahil.",
+      "laborRatePerHour": "Saatlik ücretin",
+      "laborRatePerHourHint": "Bir saatinin değeri. İşçiliği hesaba katmamak için 0 gir.",
+      "filamentWastePct": "Filament firesi",
+      "filamentWastePctHint": "Slicer'ın gösterdiğine ek olarak purge, skirt ve test çizgileri.",
+      "failureRatePct": "Başarısız baskı",
+      "failureRatePctHint": "Başarısız olup yeniden basılan baskıların oranı.",
+      "overheadPct": "Genel gider",
+      "overheadPctHint": "Kira, yazılım, alet ve diğer işletme giderleri, üretim maliyetinin yüzdesi olarak.",
+      "profitMode": "Kâr hesabı",
+      "profitPct": "Kâr",
+      "taxRatePct": "KDV",
+      "taxRatePctHint": "Alıcının ödediği fiyata eklenir. Uygulamıyorsan 0 gir.",
+      "marketplaceFeePct": "Pazaryeri komisyonu",
+      "marketplaceFeePctHint": "Alıcının ödediği fiyattan kesilen komisyon."
+    },
+    "profitModes": {
+      "MARKUP": "Maliyete ekle (markup)",
+      "MARKUP_hint": "{cost} maliyete {pct} eklenince {price} olur.",
+      "MARGIN": "Fiyattaki pay (margin)",
+      "MARGIN_hint": "{cost} maliyet, {pct} marjla {price} olur."
+    },
+    "currencies": {
+      "TRY": "Türk lirası (₺)",
+      "USD": "ABD doları ($)",
+      "EUR": "Euro (€)"
+    },
+    "units": {
+      "perKwh": "/ kWh",
+      "perHour": "/ saat"
+    }
   }
 }

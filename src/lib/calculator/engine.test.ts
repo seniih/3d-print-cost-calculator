@@ -179,6 +179,17 @@ describe("calculate: edge cases", () => {
     expect(r.perPiece.costs.depreciation).toBe(0);
   });
 
+  it("subtracts the resale value from what depreciates", () => {
+    // (400 − 100) / 5000 h × 0.8 h
+    const r = run({ ...keychain, printer: { ...printer, resaleValue: 100 } });
+    expect(r.perPiece.costs.depreciation).toBeCloseTo(0.048, 4);
+  });
+
+  it("never depreciates below zero when resale exceeds the price", () => {
+    const r = run({ ...keychain, printer: { ...printer, resaleValue: 900 } });
+    expect(r.perPiece.costs.depreciation).toBe(0);
+  });
+
   it("adds nothing for failures at a 0 % failure rate", () => {
     const r = run({ ...keychain, pricing: { failureRatePct: 0 } });
     expect(r.perPiece.costs.failures).toBe(0);

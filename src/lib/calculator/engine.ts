@@ -7,6 +7,7 @@ import type { CalculationInputs } from "./schema";
  * How a price is built, for ONE piece:
  *
  *   machine work   = filament + electricity + depreciation + maintenance   (per job ÷ pieces)
+ *   depreciation   = (printer price − resale value) ÷ lifetime hours × print hours
  *   failures       = machine work × f / (1 − f)                            (f = failure rate)
  *   labor          = prep (per job ÷ pieces) + post-processing (per piece)
  *   extras         = Σ unit price × quantity per piece
@@ -87,8 +88,10 @@ export function calculate(inputs: CalculationInputs): CalculationResult {
   const energyKwh = (printer.powerWatts / 1000) * printHours;
   const electricityPerJob = energyKwh * inputs.electricityPricePerKwh;
 
-  const depreciationPerHour =
-    printer.lifetimeHours > 0 ? printer.purchasePrice / printer.lifetimeHours : 0;
+  // Straight-line, by usage: what the printer loses in value over its life,
+  // spread evenly across the print hours it will run.
+  const depreciable = Math.max(0, printer.purchasePrice - printer.resaleValue);
+  const depreciationPerHour = printer.lifetimeHours > 0 ? depreciable / printer.lifetimeHours : 0;
   const depreciationPerJob = depreciationPerHour * printHours;
   const maintenancePerJob = printer.maintenanceCostPerHour * printHours;
 

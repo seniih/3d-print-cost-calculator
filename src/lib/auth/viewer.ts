@@ -1,5 +1,5 @@
 import "server-only";
-import { headers } from "next/headers";
+import { cookies } from "next/headers";
 import { connection } from "next/server";
 import { cache } from "react";
 import { db } from "@/lib/db";
@@ -25,7 +25,7 @@ export type ViewerUser = {
   image: string | null;
 };
 
-async function ensureLocalUser(): Promise<ViewerUser> {
+export async function ensureLocalUser(): Promise<ViewerUser> {
   const user = await db().user.upsert({
     where: { id: LOCAL_USER_ID },
     update: {},
@@ -53,7 +53,7 @@ export const getViewer = cache(async (): Promise<Viewer> => {
     return { kind: "local", user: await ensureLocalUser() };
   }
 
-  const session = await auth().api.getSession({ headers: await headers() });
+  const session = await readSession();
   if (!session) return { kind: "anonymous", user: null };
 
   const { user } = session;
@@ -72,4 +72,16 @@ export const getViewer = cache(async (): Promise<Viewer> => {
 export async function getOwner(): Promise<ViewerUser | null> {
   const viewer = await getViewer();
   return viewer.user;
+}
+
+/**
+ * The Better Auth session, read without React's per-request cache.
+ *
+ * Built from `cookies()` rather than `headers()`: a Server Action that has
+ * just started a guest session sets its cookie through `cookies()`, and the
+ * page Next.js re-renders after the action only sees it there.
+ */
+export async function readSession() {
+  const cookieHeader = (await cookies()).toString();
+  return auth().api.getSession({ headers: new Headers({ cookie: cookieHeader }) });
 }

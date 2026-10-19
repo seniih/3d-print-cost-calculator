@@ -77,7 +77,7 @@ Useful scripts:
 
 - [x] Project skeleton: database, auth, i18n, Docker
 - [x] Cost engine with unit tests
-- [ ] Printer, filament and extras libraries
+- [x] Printer, filament and extras libraries, and default settings
 - [ ] Calculator screen with cost breakdown and suggested price
 - [ ] Read weight and print time from G-code / 3MF files
 - [ ] Products and calculation history

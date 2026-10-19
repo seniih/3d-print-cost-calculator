@@ -33,6 +33,8 @@ export const filamentUsageSchema = z.object({
 export const printerSchema = z.object({
   name: z.string().trim().max(120).default(""),
   purchasePrice: money,
+  /** What it can be sold for at the end of its life. Lowers depreciation. */
+  resaleValue: money.default(0),
   /** Expected useful life, in print hours. 0 disables depreciation. */
   lifetimeHours: z.number().finite().min(0).max(1_000_000),
   /** Average power draw while printing. */
